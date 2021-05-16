@@ -1,0 +1,32 @@
+.page-title {
+    text-align: center;
+}
+
+form {
+    width: max(30rem, 30%);
+    margin: 0 auto;
+}
+
+form textarea {
+    height: 15rem;
+}
+
+#form-name,
+#form-woof {
+    font-size: 2rem;
+}
+
+.form-waitmsg {
+    color: rgb(202, 69, 69);
+    display: none;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.loading-gif {
+    width: 10rem;
+    display: none;
+}

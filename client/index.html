@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woofer message board</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</head>
+<body>
+    <header>
+        <h2 class="page-title">Woofer - Send a woof!</h2>
+    </header>
+    <main>
+        <form>
+            <label for="name">Your Name</label>
+            <input class="u-full-width" type="text" name="name" id="form-name">
+            <label for="woof">Your Woof</label>
+            <textarea class="u-full-width" name="woof" id="form-woof"></textarea>
+            <input class="button-primary" type="submit" value="Send Woof" id="form-submit">
+            <p class="form-waitmsg">please wait <span class="form-waitmsg-n"></span>s to send another woof</p>
+        </form> 
+        <section class="content">
+            <img class="loading-gif" src="./img/loading.gif" alt="loading...">
+        </section>
+    </main>
+    <script src="./app.js"></script>
+</body>
+</html>
