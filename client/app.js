@@ -9,16 +9,20 @@ const waitMsgTime = document.querySelector(".form-waitmsg-n");
 formSubmit.addEventListener("click", (event) => {
     // Prevent default form submit
     event.preventDefault();
+    submitTimer();
+    console.log(formName.value, formWoof.value);
+    loadingGif.style.display = 'block';
+    form.reset();
+})
 
-    // grey out form for 15 seconds
+// Timer to prevent user form resubmission
+const submitTimer = () => {
     let count = 15;
     formSubmit.disabled = true;
     waitMsg.style.display = "block";
     waitMsgTime.textContent = count;
-
     // display resubmit countdown below form
     // allow form resubmit after 15 seconds
-
     const countdown = setInterval(() => {
         if(count === 0) {
             clearInterval(countdown);
@@ -28,7 +32,4 @@ formSubmit.addEventListener("click", (event) => {
         count--;
         waitMsgTime.textContent = count;
     }, 1000);
-    console.log(formName.value, formWoof.value);
-    loadingGif.style.display = 'block';
-    form.reset();
-})
+}
