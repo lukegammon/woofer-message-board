@@ -5,15 +5,30 @@ const formSubmit = document.querySelector("#form-submit");
 const loadingGif = document.querySelector(".loading-gif");
 const waitMsg = document.querySelector(".form-waitmsg");
 const waitMsgTime = document.querySelector(".form-waitmsg-n");
+const API_URL = 'http://localhost:3000/woofs';
 
-formSubmit.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
     // Prevent default form submit
     event.preventDefault();
+    const formData = new FormData(form);
+    const name = formData.get("name");
+    const woof = formData.get("woof");
+    const woofData = {
+        name,
+        woof,
+    };
+    fetch(API_URL, {
+    method: 'POST',
+    body: JSON.stringify(woofData),
+    headers: {
+        'content-type' : 'application/json'
+    }
+    });
     submitTimer();
-    console.log(formName.value, formWoof.value);
     loadingGif.style.display = 'block';
     form.reset();
-})
+
+});
 
 // Timer to prevent user form resubmission
 const submitTimer = () => {

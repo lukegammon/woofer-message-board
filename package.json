@@ -4,7 +4,7 @@
   "description": "Woofer - Twitter style basic message board.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./server/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/lukegammon/woofer-message-board#readme",
   "dependencies": {
-    "dot-env": "0.0.1",
-    "express": "^4.17.1"
+    "@hapi/joi": "^17.1.1",
+    "bad-words": "^3.0.4",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "monk": "^7.3.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
