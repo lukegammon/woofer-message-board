@@ -8,7 +8,6 @@ const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@c
 
 // Set up bad-words filter
 const Filter = require('bad-words');
-const { date } = require("@hapi/joi");
 filter = new Filter();
 
 const port = process.env.PORT || 3000;
