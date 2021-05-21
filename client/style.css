@@ -1,5 +1,6 @@
 .page-title {
     text-align: center;
+    font-size: 4rem;
 }
 
 form {
@@ -23,10 +24,32 @@ form textarea {
 
 .content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: max(30rem, 30%);
+    margin: 0 auto;
 }
 
 .loading-gif {
     width: 10rem;
     display: none;
+}
+
+.woof-container {
+    background: rgba(255, 255, 255, 0.39);
+    padding: 2rem 0;
+    margin: .5rem 0;
+    border-radius: .5rem;
+}
+
+.woof-container h2 {
+    font-size: 3rem;
+}
+
+.woof-container-body {
+    font-size: 1.6rem;
+}
+
+.woof-posted-date {
+    font-size: 1rem;
+    color: darkgray;
 }

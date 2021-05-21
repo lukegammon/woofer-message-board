@@ -30,23 +30,32 @@ app.get('/', (req, res) => {
     })
 });
 
-app.post('/woofs', (req, res) => {
+app.post('/woofs', (req, res, next) => {
     const schema = Joi.object().keys({
         name: Joi.string().required().max(20),
-        woof: Joi.string().required().max(100),
+        woof: Joi.string().required().max(200),
     });
         const {error, value} = schema.validate(req.body);
         if(error) {
             console.error(error)
         } else {
+            // Create oject and filter for bad words
             const woofData = {
                 name: filter.clean(value.name),
                 woof: filter.clean(value.woof),
                 created: new Date()
             };
+            // Add the created woof to the database
             collection.insert(woofData);
         }
 })
+
+app.get('/woofs', (req, res, next) => {
+    collection.find()
+    .then(woofs => {
+        res.json(woofs);
+    }).catch(next);
+});
 
 app.listen(port, () => {
     console.log(`Server connected on port ${port}`)
