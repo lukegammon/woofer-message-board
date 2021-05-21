@@ -5,7 +5,7 @@ const formSubmit = document.querySelector("#form-submit");
 const loadingGif = document.querySelector(".loading-gif");
 const waitMsg = document.querySelector(".form-waitmsg");
 const waitMsgTime = document.querySelector(".form-waitmsg-n");
-const content = document.querySelector(".content");
+const content = document.querySelector(".content__woofs");
 const API_URL = 'http://localhost:3000/woofs';
 
 form.addEventListener("submit", (event) => {
@@ -33,7 +33,8 @@ form.addEventListener("submit", (event) => {
 });
 
 // Timer to prevent user form resubmission
-const submitTimer = () => {Luke
+const submitTimer = () => {
+    let count = 0;
     // allow form resubmit after 15 seconds
     const countdown = setInterval(() => {
         if(count === 0) {
@@ -56,22 +57,22 @@ function getAllWoofs() {
             const woofContainer = document.createElement("div");
             woofContainer.classList.add("woof-container");
             const woofContainerName = document.createElement("h2");
+            woofContainerName.innerText = woof.name;
             const woofContainerWoof = document.createElement("p");
+            woofContainerWoof.innerText = woof.woof;
             woofContainerWoof.classList.add("woof-container-body");
             const woofPostedDate = document.createElement("p");
             woofPostedDate.classList.add("woof-posted-date");
-
-            woofContainerName.innerText = woof.name;
-            woofContainerWoof.innerText = woof.woof;
             woofPostedDate.innerText = new Date(woof.created);
+
             woofContainer.appendChild(woofContainerName);
             woofContainer.appendChild(woofContainerWoof);
             woofContainer.appendChild(woofPostedDate);
             content.appendChild(woofContainer);
+            loadingGif.style.display = 'none';
         });
-    }).catch(err => console.error(err));
-    loadingGif.style.display = 'none';
+    })
+    .catch(err => console.error(err));
 }
 
-loadingGif.style.display = 'block';
 getAllWoofs();

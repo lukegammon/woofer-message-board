@@ -32,6 +32,7 @@ form textarea {
 .loading-gif {
     width: 10rem;
     display: none;
+    align-self: center;
 }
 
 .woof-container {
