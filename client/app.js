@@ -33,12 +33,7 @@ form.addEventListener("submit", (event) => {
 });
 
 // Timer to prevent user form resubmission
-const submitTimer = () => {
-    let count = 15;
-    formSubmit.disabled = true;
-    waitMsg.style.display = "block";
-    waitMsgTime.textContent = count;
-    // display resubmit countdown below form
+const submitTimer = () => {Luke
     // allow form resubmit after 15 seconds
     const countdown = setInterval(() => {
         if(count === 0) {

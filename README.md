@@ -54,8 +54,8 @@ Woofer - Twitter style basic message board.
  - [x] Respond with created mew object
  - [x] Store data in a database
 # Front-end
- - [ ] Log out created Mew after POST request
- - [ ] Show the form
+ - [x] Log out created Mew after POST request
+ - [x] Show the form
  - [ ] Hide loading spinner
 # Back-end
  - [ ] GET /mews
