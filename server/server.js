@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.static('client'));
 
 // Connect to DB with monk
-const db = monk(dbUrl, () => console.log("db set"));
+const db = monk(dbUrl);
 const collection = db.get("woofs");
 
 db.then(() => {
