@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 const Joi = require("@hapi/joi");
 const monk = require("monk");
-const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.4udsi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const dbUrl = `mongodb+srv://edit:editableuser@cluster0.4udsi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 // INCLUDE HELMET
 
 // Set up bad-words filter
@@ -15,9 +15,10 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('client'));
 
 // Connect to DB with monk
-const db = monk(dbUrl);
+const db = monk(dbUrl, () => console.log("db set"));
 const collection = db.get("woofs");
 
 db.then(() => {
@@ -26,9 +27,7 @@ db.then(() => {
 
 
 app.get('/', (req, res) => {
-    res.json({
-        message: "Woofer"
-    })
+    res.sendFile('index.html', { root: "client" } )
 });
 
 app.post('/woofs', (req, res, next) => {

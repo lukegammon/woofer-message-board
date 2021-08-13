@@ -7,8 +7,9 @@ const waitMsg = document.querySelector(".form-waitmsg");
 const waitMsgTime = document.querySelector(".form-waitmsg-n");
 const content = document.querySelector(".content__woofs");
 const API_URL = 'http://localhost:3000/woofs';
-
+console.log("linked")
 form.addEventListener("submit", (event) => {
+    console.log("hit")
     // Prevent default form submit
     event.preventDefault();
     const formData = new FormData(form);
