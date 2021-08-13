@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 const Joi = require("@hapi/joi");
 const monk = require("monk");
-const dbUrl = `mongodb+srv://edit:editableuser@cluster0.4udsi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.4udsi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 // INCLUDE HELMET
 
 // Set up bad-words filter
