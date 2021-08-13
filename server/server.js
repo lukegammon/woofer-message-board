@@ -5,7 +5,7 @@ const cors = require("cors");
 const Joi = require("@hapi/joi");
 const monk = require("monk");
 const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.4udsi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-// INCLUDE HELMET
+const helmet = require("helmet");
 
 // Set up bad-words filter
 const Filter = require('bad-words');
@@ -13,6 +13,7 @@ filter = new Filter();
 
 const port = process.env.PORT || 3000;
 
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use(express.static('client'));
